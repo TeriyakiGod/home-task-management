@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Duties List</h1>
+  <a href="{% url 'create' %}">Create Duty</a>
+  <ul>
+    {% for duty in duties %}
+      <li>
+        <div style="background-color: beige; padding: 5px; margin: 5px;">
+          <h3>Name: {{ duty.name }}</h3>
+          <p>Person: {{ duty.person }}</p>
+          <p>Status: {{ duty.status }}</p>
+          <a href="{% url 'change_status' duty.id %}">Update</a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
